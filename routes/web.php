@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/usuario/{id}/{nome?}', function ($id, $nome = 'Anônimo') {
+    return 'Usuário '.$nome.' - id: '.$id;
+});

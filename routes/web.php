@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,8 +24,14 @@ Route::get('/usuario/{id}/{nome?}', function ($id, $nome = 'Anônimo') {
 })->name('usuario');
 
 Route::get('perfil/{user:email}', function (User $user) {
-    return dd($user);
-});
+    return $user;
+})->name('perfil');
+
+Route::get('request', function (Request $request) {
+    $request->whenHas('nome', function ($parametro) {
+        dd($parametro);
+    });
+})->name('request');
 
 Route::prefix('loja')->group(function () {
     Route::get('', function () {

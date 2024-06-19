@@ -31,3 +31,19 @@ realizar a busca deve-se utilizar na string da rota o campo da seguinte maneira 
 <h2>Debug</h2>
 
 - Como o Laravel é um framework inteligente, para debugar podemos usar a função dd
+
+<h2>Camas de Request</h2>
+
+- Para utilizar a injeção de dependências da request basta usar no parametro da função da rota a Classe Illuminate\Http\Request, agora veja
+alguns exemplos de uso da request: <a href="https://laravel.com/docs/9.x/requests">referência da documentação</a>
+1. $request->all() responsável por retornar os dados passados por query string ou no body de uma requisição POST
+2. $request->query() responsável por retornar a query string passada no parametro da url
+3. $request->input('parametro') responsável por retornar o valor do parametro, por exemplo ?parametro=123 será retornado o 123
+4. $request->path() responsável por retornar o caminho do endereço
+5. $request->url() responsável por retornar a url
+6. $request->fullUrl() responsável por trazer a url completa, incluindo por exemplo as query string
+7. $request->header() responsável por trazer o header da requisição
+8. $request->has('parametro') responsável por retornar true se o parametro existe ou false se não existir
+9. $request->whenHas('parametro', function($parametro){}); responsável por executar uma função caso o parametro exista
+10. $request->whenFilled('parametro', function($parametro){}); responsável por executar uma função caso o parametro exista e possua valor
+11. $request->ip() responsável por retornar o ip

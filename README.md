@@ -27,6 +27,8 @@ da função a variviável $variavel, lembre-se que a ordem que importa está no 
 - Para injetar parametros em uma rota, é necessário passar um model e uma variável no parametro da função da rota, por exemplo: Route::get(
 'usuario/{id}', function(Model $id){}); *Lembre-se que o valor padrão para buscar é sempre o id e para especificar o campo que se refere para
 realizar a busca deve-se utilizar na string da rota o campo da seguinte maneira {user:name}*
+- Para linkar uma rota com um controller ao invés de utilziar uma função no parametro do método, use um array com o primeiro parâmetro sendo
+o nome da classe do controller e o segundo parâmetro o método, exemplo: Route::get('usuario', [UserController::class, 'getUser']);
 
 <h2>Debug</h2>
 
@@ -35,7 +37,7 @@ realizar a busca deve-se utilizar na string da rota o campo da seguinte maneira 
 <h2>Camas de Request</h2>
 
 - Para utilizar a injeção de dependências da request basta usar no parametro da função da rota a Classe Illuminate\Http\Request, agora veja
-alguns exemplos de uso da request: <a href="https://laravel.com/docs/9.x/requests">referência da documentação</a>
+alguns exemplos de uso da request: <a href="https://laravel.com/docs/9.x/requests" target="_blank">referência da documentação</a>
 1. $request->all() responsável por retornar os dados passados por query string ou no body de uma requisição POST
 2. $request->query() responsável por retornar a query string passada no parametro da url
 3. $request->input('parametro') responsável por retornar o valor do parametro, por exemplo ?parametro=123 será retornado o 123

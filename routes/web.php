@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,8 @@ Route::get('request', function (Request $request) {
         dd($parametro);
     });
 })->name('request');
+
+Route::get('controller/{user}', [UserController::class, 'getUser']);
 
 Route::prefix('loja')->group(function () {
     Route::get('', function () {

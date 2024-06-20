@@ -37,7 +37,8 @@ o nome da classe do controller e o segundo parâmetro o método, exemplo: Route:
 <h2>Camas de Request</h2>
 
 - Para utilizar a injeção de dependências da request basta usar no parametro da função da rota a Classe Illuminate\Http\Request, agora veja
-alguns exemplos de uso da request: <a href="https://laravel.com/docs/9.x/requests" target="_blank">referência da documentação</a>
+alguns exemplos de uso da request: 
+<a href="https://laravel.com/docs/9.x/requests" target="_blank">referência da documentação</a>
 1. $request->all() responsável por retornar os dados passados por query string ou no body de uma requisição POST
 2. $request->query() responsável por retornar a query string passada no parametro da url
 3. $request->input('parametro') responsável por retornar o valor do parametro, por exemplo ?parametro=123 será retornado o 123
@@ -49,3 +50,11 @@ alguns exemplos de uso da request: <a href="https://laravel.com/docs/9.x/request
 9. $request->whenHas('parametro', function($parametro){}); responsável por executar uma função caso o parametro exista
 10. $request->whenFilled('parametro', function($parametro){}); responsável por executar uma função caso o parametro exista e possua valor
 11. $request->ip() responsável por retornar o ip
+
+<h2>Blade template</h2>
+
+- Para utilizar o blade template e aproveitar seus recursos você precisa utilizar a extensão .blade.php, pois assim o laravel vai reconhecer
+que você quer utilizar os recursos dele, veja exemplos: 
+<a href="https://laravel.com/docs/9.x/blade" target="_blank">referência da documentação do blade template</a>
+- Para adicionar variável php no blade template você precisa passar no segundo parâmetro do metodo view um array, onde o índice será a variável
+que será utilizada no blade template dentro da syntaxe {{ $nome }} e ela receberá o valor desse índice, exemplo: view('user', ['nome' => 'Usuário']);

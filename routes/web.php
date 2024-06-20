@@ -20,32 +20,4 @@ Route::get('/', function () {
     return view('welcome');
 })->name('index');
 
-Route::get('/usuario/{id}/{nome?}', function ($id, $nome = 'Anônimo') {
-    return 'Usuário '.$nome.' - id: '.$id;
-})->name('usuario');
-
-Route::get('perfil/{user:email}', function (User $user) {
-    return $user;
-})->name('perfil');
-
-Route::get('request', function (Request $request) {
-    $request->whenHas('nome', function ($parametro) {
-        dd($parametro);
-    });
-})->name('request');
-
-Route::get('controller/{user}', [UserController::class, 'getUser']);
-
-Route::prefix('loja')->group(function () {
-    Route::get('', function () {
-        return 'Página raíz do grupo de rota loja';
-    })->name('loja');
-
-    Route::get('id/{idLoja}', function ($idUsuario) {
-        return 'Id da loja é: '.$idUsuario;
-    })->name('loja.id');
-
-    Route::get('nomeLoja/{nomeLoja}', function ($nomeLoja) {
-        return 'Nome da loja é: '.$nomeLoja;
-    });
-})->name('loja.nomeLoja');
+Route::get('user/{user}', [UserController::class, 'getUser'])->name('user.id');

@@ -72,3 +72,5 @@ que será utilizada no blade template dentro da syntaxe {{ $nome }} e ela recebe
 use no segundo parâmetro
 8. @section é a sessão que será recuperada em outra view, para adicionar um html você irá precisar fechar com a diretiva @show
 9. @extends extende o layout para ser recuperado
+10. @push é responsável por armazenar link ou conteúdo script, você vai passar uma string do seu nome no parâmetro, é necessário fechar com @endpush
+11. @stack é responsável por receber os conteúdos que estão no push, indicando pela qual conteúdo do push pela string de seu nome no parâmetro

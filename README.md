@@ -58,3 +58,13 @@ que você quer utilizar os recursos dele, veja exemplos:
 <a href="https://laravel.com/docs/9.x/blade" target="_blank">referência da documentação do blade template</a>
 - Para adicionar variável php no blade template você precisa passar no segundo parâmetro do metodo view um array, onde o índice será a variável
 que será utilizada no blade template dentro da syntaxe {{ $nome }} e ela receberá o valor desse índice, exemplo: view('user', ['nome' => 'Usuário']);
+
+<h3>Diretivas</h3>
+
+- Algumas diretivas do blade template:
+1. @if é o if do blade
+2. @elseif é o else if do blade
+3. @empty mesmo comportamento da função empty nativa do php
+4. @php permite utilizar o php no blade
+5. @foreach é o foreach do blade
+6. @unless é o oposto do if

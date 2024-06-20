@@ -3,15 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Usuário</title>
+  <title>Usuários</title>
 </head>
 <body>
-  <h1>Usuário</h1>
-  
-  <p>Nome do usuário {{ $nome }} e seu e-mail: {{ $email }}</p>
-
-  @if(0)
-    Verdadeiro
-  @endif
+  @foreach($users as $key => $user)
+    <p>Nome: {{ $user->name }}, email: {{ $user->email }}</p>
+  @endforeach
 </body>
 </html>

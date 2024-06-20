@@ -12,4 +12,12 @@ class UserController extends Controller {
             'email' => $user->email
         ]);
     }
+
+    public function index(){
+        $users = User::all();
+
+        return view('users', [
+            'users' => $users
+        ]);
+    }
 }

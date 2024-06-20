@@ -21,3 +21,5 @@ Route::get('/', function () {
 })->name('index');
 
 Route::get('user/{user}', [UserController::class, 'getUser'])->name('user.id');
+
+Route::get('users', [UserController::class, 'index'])->name('users');

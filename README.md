@@ -68,3 +68,7 @@ que será utilizada no blade template dentro da syntaxe {{ $nome }} e ela recebe
 4. @php permite utilizar o php no blade
 5. @foreach é o foreach do blade
 6. @unless é o oposto do if
+7. @yield é o local que será recuperado em outra view, para tribuir o valor, adicione a string no primeiro parâmetro para criar um valor padrão 
+use no segundo parâmetro
+8. @section é a sessão que será recuperada em outra view, para adicionar um html você irá precisar fechar com a diretiva @show
+9. @extends extende o layout para ser recuperado

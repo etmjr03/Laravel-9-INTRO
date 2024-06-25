@@ -108,3 +108,12 @@ você irá adicionar o nome da coluna nova, seguindo o mesmo padrão de criar. V
 - Para manipular dados de timestap é necessário alterar a configuração do DBAL.
 - Para criar uma migrate de update, exemplo: <b>php artisan make:migration update_colunaAtual_Tabela_table</b>
 - Como alterar um nome de coluna, é necessário utilizar $table->renameColumn('nomeDaColunaAtual', 'nomeNovoDaColuna'); e adicionar para o métodos down $table->renameColumn('nomeAntigoDaColuna', 'nomeQueSeraAlterado');
+
+<h2>Model</h2>
+
+- Um model é a representação de um dado do banco de dados, exemplo se você tem uma tabela de usuário e nela tem uma linha de dados de um usuário, sua representação será uma model
+
+<h3>Criando model</h3>
+
+- Para criar um model, exemplo: <b>php artisan make:model NomeDoModel</b> para criar um mini template, lembre-se que o nome do model, geralmente segue a representação do dado, tabela de usuário model Usuario
+- Os models ficam em app > Models > NomeDoModel.php

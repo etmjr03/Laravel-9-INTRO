@@ -74,3 +74,17 @@ use no segundo parâmetro
 9. @extends extende o layout para ser recuperado
 10. @push é responsável por armazenar link ou conteúdo script, você vai passar uma string do seu nome no parâmetro, é necessário fechar com @endpush
 11. @stack é responsável por receber os conteúdos que estão no push, indicando pela qual conteúdo do push pela string de seu nome no parâmetro
+
+<h2>Banco de dados</h2>
+
+- O laravel disponibiliza varios recursos para gerenciar o banco de dados
+
+<h3>Migrations</h3>
+
+- Para criar uma migration é necessário criar um arquivo php dentro de databese > migration > arquivo.php, esses arquivos contam com os métodos up e down, para criar e resetar ou deletar uma migration.
+- Comando para criar uma migration <b>php artisan make:migration create_nomeDaTabela_table</b>, pois assim o schema do método de criar (up) já virá padronizado
+- Preenchendo schemas para criar tabelas, utilizaremos o método create da classe Schema para criar tabelas, no seu parâmetro passaremos o nome da tabela e uma função onde injetaremos
+no seu parâmetro a classe Blueprint e a variável $table exemplo: <b>Schema::create('tabela', function(BluePrint $table){});</b> e dentro do seu conteúdo iremos criar as colunas.
+- Como criar colunas na tabela, dentro do método create iremos atribuir à variável $table os objetos e em seu parâmetro o nome da coluna, exemplo: <b>$table->string('titulo');</b>
+- Identificar que uma coluna da tabela não é obrigatória devemos passar o objeto nullable(), exemplo: <b>$table->string('titulo')->nullable();</b>
+- Como executar a migration <b>php artisan migrate</b>

@@ -91,6 +91,7 @@ no seu parâmetro a classe Blueprint e a variável $table exemplo: <b>Schema::cr
 - Como executar a migration <b>php artisan migrate</b>
 - Como adicionar colunas em tabelas existentes com migrations, exemplo: <b>php artisan make:migrate add_colunaNova_to_tabela_table</b>, isso irá criar um método com table e nele
 você irá adicionar o nome da coluna nova, seguindo o mesmo padrão de criar. Você também terá que adicionar um drop da coluna no método down, exemplo: <b>$table->dropColumn('coluna')</b>
+- Veja todos os tipos de dados do banco, referência: <a href="https://laravel.com/docs/9.x/migrations#available-column-types" target="_blank">Todos os tipos de dados de banco para migrate</a>
 
 <h3>Migrations drop e rollback</h3>
 
@@ -100,3 +101,10 @@ você irá adicionar o nome da coluna nova, seguindo o mesmo padrão de criar. V
 <h3>Migrations de relacionamento</h3>
 
 - Para criar um relacionamento, por exemplo de um usuário com o id_usuario do post, você deve utilizar, $table->foreignId('colunaQueRepresentaOId')->constrained()->onDelete('CASCADE')->onUpdate('CASCADE'), lembre-se que o constrained é para deixar restrito somente para id de usuários que existem, o onDelete irá excluir todo o vinculo do id_usuario quando o usuário for deletado e o onUpdate irá atualizar automaticamente o id_usuario se o id do usuário por alterado.
+
+<h3>Migrations de update</h3>
+
+- Primeiro para poder criar uma migrate de update, você precisa instalar um drive: <a href="https://laravel.com/docs/9.x/migrations#modifying-columns" target="_blank">doctrine/dbal</a>, seu comando é <b>composer require doctrine/dbal</b>
+- Para manipular dados de timestap é necessário alterar a configuração do DBAL.
+- Para criar uma migrate de update, exemplo: <b>php artisan make:migration update_colunaAtual_Tabela_table</b>
+- Como alterar um nome de coluna, é necessário utilizar $table->renameColumn('nomeDaColunaAtual', 'nomeNovoDaColuna'); e adicionar para o métodos down $table->renameColumn('nomeAntigoDaColuna', 'nomeQueSeraAlterado');

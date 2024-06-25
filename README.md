@@ -81,10 +81,14 @@ use no segundo parâmetro
 
 <h3>Migrations</h3>
 
-- Para criar uma migration é necessário criar um arquivo php dentro de databese > migration > arquivo.php, esses arquivos contam com os métodos up e down, para criar e resetar ou deletar uma migration.
-- Comando para criar uma migration <b>php artisan make:migration create_nomeDaTabela_table</b>, pois assim o schema do método de criar (up) já virá padronizado
+- Para criar uma migration é necessário criar um arquivo php dentro de databese > migrations > arquivo.php, esses arquivos contam com os métodos up e down, para criar e resetar ou deletar uma migration.
+- Comando para criar uma migration <b>php artisan make:migrate create_nomeDaTabela_table</b>, pois assim o schema do método de criar (up) já virá padronizado
 - Preenchendo schemas para criar tabelas, utilizaremos o método create da classe Schema para criar tabelas, no seu parâmetro passaremos o nome da tabela e uma função onde injetaremos
 no seu parâmetro a classe Blueprint e a variável $table exemplo: <b>Schema::create('tabela', function(BluePrint $table){});</b> e dentro do seu conteúdo iremos criar as colunas.
 - Como criar colunas na tabela, dentro do método create iremos atribuir à variável $table os objetos e em seu parâmetro o nome da coluna, exemplo: <b>$table->string('titulo');</b>
 - Identificar que uma coluna da tabela não é obrigatória devemos passar o objeto nullable(), exemplo: <b>$table->string('titulo')->nullable();</b>
+- Para adicionar uma coluna após uma coluna específica deve usar o after e passar em seu parâmetro o nome da tabela que vem antes, exemplo: <b>$table->string('titulo')->after('imagem')</b>
 - Como executar a migration <b>php artisan migrate</b>
+- Como adicionar colunas em tabelas existentes com migrations, exemplo: <b>php artisan make:migrate add_colunaNova_to_tabela_table</b>, isso irá criar um método com table e nele
+você irá adicionar o nome da coluna nova, seguindo o mesmo padrão de criar. Você também terá que adicionar um drop da coluna no método down, exemplo: <b>$table->dropColumn('coluna')</b>
+- Para executar um rollback em uma migrate basta executar o comando <b>php artisan migrate:rollback</b>

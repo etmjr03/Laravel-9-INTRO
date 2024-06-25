@@ -117,3 +117,4 @@ você irá adicionar o nome da coluna nova, seguindo o mesmo padrão de criar. V
 
 - Para criar um model, exemplo: <b>php artisan make:model NomeDoModel</b> para criar um mini template, lembre-se que o nome do model, geralmente segue a representação do dado, tabela de usuário model Usuario
 - Os models ficam em app > Models > NomeDoModel.php
+- Também é possível criar o model junto com o controler e as migrations, exemplo: <b>php artisan make:model NomeDoModel --migration</b>

@@ -79,7 +79,7 @@ use no segundo parâmetro
 
 - O laravel disponibiliza varios recursos para gerenciar o banco de dados
 
-<h3>Migrations</h3>
+<h3>Migrations create</h3>
 
 - Para criar uma migration é necessário criar um arquivo php dentro de databese > migrations > arquivo.php, esses arquivos contam com os métodos up e down, para criar e resetar ou deletar uma migration.
 - Comando para criar uma migration <b>php artisan make:migrate create_nomeDaTabela_table</b>, pois assim o schema do método de criar (up) já virá padronizado
@@ -91,4 +91,12 @@ no seu parâmetro a classe Blueprint e a variável $table exemplo: <b>Schema::cr
 - Como executar a migration <b>php artisan migrate</b>
 - Como adicionar colunas em tabelas existentes com migrations, exemplo: <b>php artisan make:migrate add_colunaNova_to_tabela_table</b>, isso irá criar um método com table e nele
 você irá adicionar o nome da coluna nova, seguindo o mesmo padrão de criar. Você também terá que adicionar um drop da coluna no método down, exemplo: <b>$table->dropColumn('coluna')</b>
+
+<h3>Migrations drop e rollback</h3>
+
 - Para executar um rollback em uma migrate basta executar o comando <b>php artisan migrate:rollback</b>
+- Como dar rollback para uma migration específica, exemplo: <b>php artisan migrate:rollback --step=2</b>, cada migrate criada equivale a um step.
+
+<h3>Migrations de relacionamento</h3>
+
+- Para criar um relacionamento, por exemplo de um usuário com o id_usuario do post, você deve utilizar, $table->foreignId('colunaQueRepresentaOId')->constrained()->onDelete('CASCADE')->onUpdate('CASCADE'), lembre-se que o constrained é para deixar restrito somente para id de usuários que existem, o onDelete irá excluir todo o vinculo do id_usuario quando o usuário for deletado e o onUpdate irá atualizar automaticamente o id_usuario se o id do usuário por alterado.

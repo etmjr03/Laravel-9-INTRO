@@ -118,3 +118,16 @@ você irá adicionar o nome da coluna nova, seguindo o mesmo padrão de criar. V
 - Para criar um model, exemplo: <b>php artisan make:model NomeDoModel</b> para criar um mini template, lembre-se que o nome do model, geralmente segue a representação do dado, tabela de usuário model Usuario
 - Os models ficam em app > Models > NomeDoModel.php
 - Também é possível criar o model junto com o controler e as migrations, exemplo: <b>php artisan make:model NomeDoModel --migration</b>
+
+<h2>Eloquent</h2>
+
+- Responsável por pegar os registros do banco de dados, referência: <a href="https://laravel.com/docs/9.x/eloquent#building-queries">Construa query com Eloquent</a>
+
+<h3>ORM</h3>
+
+- Relacionamento e mapeamento do objeto do banco de dados
+- Para utilizar um ORM você pode criar um model junto com o controller, migration e factory, para isso use o comando <b>php artisan make:model NomeDoModel --migration --controller --factory</b>. O controller é responsável por controlar os conteúdos do model e coleção de registros, o Model é responsável por trazer as informações do banco de dados, ele irá extender o Factory "use HasFactory;" e através disso você pode utilizar as funções do Eloquent.
+- all() retorna todos os registos
+- find() faz um select pelo id do registro
+- where('coluna', 'valor')->get() faz a consulta pela condição onde o primeiro parâmetro é a coluna e o segundo o valor e é necessário utilizar o metodo get no final para retornar uma coleção caso exista mais de um valor na tabela, para trazer somente o primeiro registro, substitua o get por first
+- Para utilizar mais de uma condição where (AND) basta ir passando o metodo where('coluna', 'valor')->where('coluna', 'valor') e para usar or substitua por orWhere

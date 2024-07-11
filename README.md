@@ -33,6 +33,9 @@ o nome da classe do controller e o segundo parâmetro o método, exemplo: Route:
 <h2>Debug</h2>
 
 - Como o Laravel é um framework inteligente, para debugar podemos usar a função dd
+- Trazer os dados do objeto $variavel->toArray();
+- Informar a query $variavel->toSql();
+- Para utilizar o enableQueryLog, você precisa chamar o \DB::connection()->enableQueryLog(); e atribuir na variável o valor \DB::getQueryLog(); e utilizar a variável que recebeu o valor na função dd
 
 <h2>Camas de Request</h2>
 
@@ -132,7 +135,7 @@ você irá adicionar o nome da coluna nova, seguindo o mesmo padrão de criar. V
 
 - all() retorna todos os registos
 - find() faz um select pelo id do registro
-- where('coluna', 'valor')->get() faz a consulta pela condição onde o primeiro parâmetro é a coluna e o segundo o valor e é necessário utilizar o metodo get no final para retornar uma coleção caso exista mais de um valor na tabela, para trazer somente o primeiro registro, substitua o get por first
+- where('coluna', 'valor')->get() faz a consulta pela condição onde o primeiro parâmetro é a coluna e o segundo o valor e é necessário utilizar o metodo get no final para retornar uma coleção caso exista mais de um valor na tabela, para trazer somente o primeiro registro, substitua o get por first. Para utilizar outro tipo de operador, você pode passar ele no parâmetro antes do valor, exemplo <b>where('coluna', 'LIKE', '%valor%')</b>
 - Para utilizar mais de uma condição where (AND) basta ir passando o metodo where('coluna', 'valor')->where('coluna', 'valor') e para usar or substitua por orWhere
 
 <h3>Salvar informações</h3>

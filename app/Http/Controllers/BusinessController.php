@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Business;
 use Illuminate\Http\Request;
+use DB;
 
 class BusinessController extends Controller
 {
     public function index(){
-        $businesses = Business::find(3);
-        $businesses->delete();
+        \DB::connection()->enableQueryLog();
 
-        dd($businesses);
+        $businesses = Business::find(4);
+        $query = \DB::getQueryLog();
+
+        dd($query);
     }
 }

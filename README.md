@@ -143,3 +143,7 @@ você irá adicionar o nome da coluna nova, seguindo o mesmo padrão de criar. V
 
 - update(['coluna' => 'valor']) você vai utilizar a função de update na variável que recebe a consulta do banco, por exemplo: <b>$infoTabela = NomeModell::find(1)->update(['coluna' => 'valor']);</b>
 - fill($variavel) você pode utilizar o fill para substituir o update também, seu parametro espera uma variável array com o indice representando a coluna e o valor o valor, mas precisa passar a função save no final, por exemplo: <b>$infoTabela = NomeModell::find(1)->fill($arraySet)->save();</b>
+
+<h3>Remover informações</h3>
+
+- delete() após selecionar um dado, passe a função delete(), exemplo: <b>$infoTabela = NomeModell::find(1)->delete</b>

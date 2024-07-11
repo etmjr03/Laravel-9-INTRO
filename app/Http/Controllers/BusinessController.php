@@ -8,10 +8,11 @@ use Illuminate\Http\Request;
 class BusinessController extends Controller
 {
     public function index(){
-        $businesses = Business::all();
-        $businessesPorId = Business::find(1);
-        $businessesPorCondicao = Business::where('name', 'teste')->get();
+        $businesses = Business::create([
+            'name' => 'Lana Del Rey',
+            'email' => 'lana.del.rey@gmail.com'
+        ]);
 
-        dd($businessesPorCondicao);
+        dd($businesses);
     }
 }

@@ -127,7 +127,14 @@ você irá adicionar o nome da coluna nova, seguindo o mesmo padrão de criar. V
 
 - Relacionamento e mapeamento do objeto do banco de dados
 - Para utilizar um ORM você pode criar um model junto com o controller, migration e factory, para isso use o comando <b>php artisan make:model NomeDoModel --migration --controller --factory</b>. O controller é responsável por controlar os conteúdos do model e coleção de registros, o Model é responsável por trazer as informações do banco de dados, ele irá extender o Factory "use HasFactory;" e através disso você pode utilizar as funções do Eloquent.
+
+<h3>Realizar consultas</h3>
+
 - all() retorna todos os registos
 - find() faz um select pelo id do registro
 - where('coluna', 'valor')->get() faz a consulta pela condição onde o primeiro parâmetro é a coluna e o segundo o valor e é necessário utilizar o metodo get no final para retornar uma coleção caso exista mais de um valor na tabela, para trazer somente o primeiro registro, substitua o get por first
 - Para utilizar mais de uma condição where (AND) basta ir passando o metodo where('coluna', 'valor')->where('coluna', 'valor') e para usar or substitua por orWhere
+
+<h3>Salvar informações</h3>
+
+- create(['coluna' => 'valor']) create é responsável para realizar o insert dos dados, no seu parâmetro vai um array com o indice representando a coluna e o valor o seu valor <b>Importante !!! O Laravel tem uma trava de segurança, para poder inserir registros no banco você precisa adicionar no seu Model uma variável protected $fillable = ['coluna'] contendo os campos que você vai permitir ser manipulado, isso indica ao Laravel que você permite a manipulação dessas informações</b>

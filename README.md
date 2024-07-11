@@ -138,3 +138,8 @@ você irá adicionar o nome da coluna nova, seguindo o mesmo padrão de criar. V
 <h3>Salvar informações</h3>
 
 - create(['coluna' => 'valor']) create é responsável para realizar o insert dos dados, no seu parâmetro vai um array com o indice representando a coluna e o valor o seu valor <b>Importante !!! O Laravel tem uma trava de segurança, para poder inserir registros no banco você precisa adicionar no seu Model uma variável protected $fillable = ['coluna'] contendo os campos que você vai permitir ser manipulado, isso indica ao Laravel que você permite a manipulação dessas informações</b>
+
+<h3>Alterar informações</h3>
+
+- update(['coluna' => 'valor']) você vai utilizar a função de update na variável que recebe a consulta do banco, por exemplo: <b>$infoTabela = NomeModell::find(1)->update(['coluna' => 'valor']);</b>
+- fill($variavel) você pode utilizar o fill para substituir o update também, seu parametro espera uma variável array com o indice representando a coluna e o valor o valor, mas precisa passar a função save no final, por exemplo: <b>$infoTabela = NomeModell::find(1)->fill($arraySet)->save();</b>
